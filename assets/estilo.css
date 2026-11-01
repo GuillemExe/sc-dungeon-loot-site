@@ -1,0 +1,95 @@
+/* Web pública de SC Dungeon Loot: mismo aspecto que la app (HUD del mobiGlas) */
+@font-face {
+  font-family: 'Saira';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 75% 125%;
+  font-display: swap;
+  src: url('saira-latin.woff2') format('woff2');
+}
+
+:root {
+  --text: #f0f5fa;
+  --muted: rgba(214, 226, 238, 0.68);
+  --accent: #4fb6ff;
+  --frame: rgba(118, 210, 255, 0.95);
+  --tile: rgba(255, 255, 255, 0.055);
+  --head: 'Saira', system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font: 500 15px/1.6 'Saira', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--text);
+  background: #05070a url('fondo.webp') center / cover no-repeat fixed;
+}
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(6, 8, 12, 0.72), rgba(6, 8, 12, 0.55) 40%, rgba(6, 8, 12, 0.8));
+}
+
+a { color: var(--accent); }
+a:hover { color: #9fd8ff; }
+
+.wrap { max-width: 860px; margin: 0 auto; padding: 24px 16px 48px; }
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 10px 18px; margin-bottom: 24px;
+  border-top: 2px solid var(--frame); border-bottom: 2px solid var(--frame); border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)), rgba(14, 18, 24, 0.78);
+  backdrop-filter: blur(20px);
+}
+.brand { font: 700 18px/1 var(--head); font-variation-settings: 'wdth' 118; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; text-decoration: none; }
+.nav { display: flex; flex-wrap: wrap; gap: 6px; }
+.nav a {
+  padding: 6px 12px; border-radius: 10px; font: 700 12px var(--head); letter-spacing: 0.06em; text-transform: uppercase;
+  color: #fff; text-decoration: none; border: 1px solid var(--frame);
+  background: linear-gradient(180deg, rgba(118, 210, 255, 0.16), rgba(118, 210, 255, 0.06));
+}
+.nav a[aria-current='page'] { background: linear-gradient(180deg, rgba(150, 222, 255, 0.5), rgba(118, 210, 255, 0.24)); }
+
+.panel {
+  padding: 22px 24px; margin-bottom: 20px; border-radius: 24px;
+  border-top: 2px solid var(--frame); border-bottom: 2px solid var(--frame);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03) 30%, rgba(255, 255, 255, 0.08)), rgba(14, 18, 24, 0.7);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12), 0 10px 15px rgba(0, 0, 0, 0.28);
+}
+
+h1, h2, h3 { font-family: var(--head); font-variation-settings: 'wdth' 118, 'wght' 680; letter-spacing: 0.05em; line-height: 1.25; }
+h1 { font-size: 30px; text-transform: uppercase; margin: 0 0 8px; }
+h2 { font-size: 18px; text-transform: uppercase; margin: 28px 0 10px; color: #fff; }
+h3 { font-size: 15px; margin: 18px 0 6px; }
+.panel > h2:first-child { margin-top: 0; }
+p, li { color: rgba(240, 245, 250, 0.9); }
+.muted { color: var(--muted); }
+.lead { font-size: 17px; }
+
+.cta {
+  display: inline-flex; align-items: center; gap: 8px; margin: 14px 8px 0 0; padding: 12px 18px; border-radius: 12px;
+  font: 700 14px var(--head); letter-spacing: 0.06em; text-transform: uppercase; color: #fff; text-decoration: none;
+  border: 1px solid var(--frame); background: linear-gradient(180deg, rgba(118, 210, 255, 0.34), rgba(118, 210, 255, 0.14));
+  box-shadow: 0 0 22px -6px rgba(118, 210, 255, 0.9);
+}
+.cta:hover { color: #fff; background: linear-gradient(180deg, rgba(150, 222, 255, 0.5), rgba(118, 210, 255, 0.24)); }
+
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; list-style: none; padding: 0; margin: 0; }
+.features li { padding: 14px 16px; border-radius: 14px; background: var(--tile); }
+.features strong { display: block; color: #fff; margin-bottom: 4px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+th, td { text-align: left; padding: 8px 10px; border-top: 1px solid rgba(255, 255, 255, 0.08); vertical-align: top; }
+th { color: var(--accent); font: 700 12px var(--head); letter-spacing: 0.05em; text-transform: uppercase; }
+
+.footer { font-size: 12px; color: rgba(214, 226, 238, 0.55); line-height: 1.6; }
+.footer a { color: inherit; }
+
+@media (max-width: 560px) {
+  h1 { font-size: 24px; }
+  .panel { padding: 18px 16px; }
+}
