@@ -1,0 +1,9 @@
+# Finales de línea iguales para todos (LF), también en Windows
+* text=auto eol=lf
+
+# Binarios: tal cual
+*.png binary
+*.jpg binary
+*.webp binary
+*.woff2 binary
+*.ico binary
