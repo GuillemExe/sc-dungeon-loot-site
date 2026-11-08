@@ -26,22 +26,36 @@
       </section>
 
       <section class="panel">
-        <h2>Alfa 0.4.1 · 8 de noviembre de 2026</h2>
-        <p>Más ligera.</p>
+        <h2>Alfa 0.4.2 · 8 de noviembre de 2026</h2>
+        <p>La app, en inglés además de en español, para que la puedan usar comunidades de Star Citizen que no hablan español.</p>
         <ul>
-          <li>En el móvil, el fondo pesa menos de la mitad y la página sale antes.</li>
-          <li>Dentro de Discord, la app empieza a cargar lo de Discord a la vez que lo suyo.</li>
-          <li>Menos mensajes y menos trabajo en el servidor mientras se reparte: quien está en el menú ya no recibe avisos de cada elección.</li>
-          <li>La pantalla solo se vuelve a pintar cuando cambia algo: los dados ya no se cortan si llega un aviso mientras ruedan.</li>
+          <li><strong>Idioma automático.</strong> La app sale en el idioma de tu cuenta de Discord: en español si Discord está en español y en inglés si está en cualquier otro idioma, porque es el idioma común de la comunidad del juego. Se puede cambiar en Opciones → Idioma, y la elección se recuerda.</li>
+          <li><strong>Todo traducido.</strong> Pantallas, guía, avisos y confirmaciones, los mensajes del servidor (por ejemplo, por qué no se puede empezar un reparto), los niveles de karma (con los nombres en inglés de Star Citizen, como en el juego), el resumen para pegar en Discord y el aviso legal. Las fechas y los números siguen el formato de cada idioma.</li>
+          <li><strong>Traducción fiel.</strong> Cada texto se ha traducido con el mismo sentido que el original, sin añadir ni quitar nada, para que un jugador en inglés entienda las reglas exactamente igual.</li>
+          <li><strong>Sin peso de más.</strong> El inglés va en un archivo aparte (14&nbsp;KB) que solo se descarga si se usa: quien juega en español no carga nada nuevo. Una prueba automática comprueba que ningún texto de la app se quede sin traducir.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>Alfa 0.4.1 · 8 de noviembre de 2026</h2>
+        <p>Revisión de rendimiento de todo el código: menos tráfico entre la app y el servidor, menos escrituras en la base de datos y menos peso en la primera carga.</p>
+        <ul>
+          <li><strong>Avisos al menú solo cuando cambian algo.</strong> Cada elección o aceptación dentro de un reparto se reenviaba a todos los que estaban en el menú, aunque el menú no enseña nada de eso. Ahora el servidor solo les avisa si cambia lo que ven (nombre, fase, anfitrión, jugadores u objetos de una instancia), y nunca repite un menú idéntico al último que mandó. En las pruebas automáticas, un 7&nbsp;% menos de mensajes; con más gente en el menú mientras otros reparten, el ahorro es mayor.</li>
+          <li><strong>Una escritura menos por acción.</strong> El servidor usa un único temporizador para los plazos (anfitrión ausente, instancias abandonadas, borrado por inactividad), y lo reprogramaba en cada acción porque cada acción alarga el plazo de inactividad de su instancia. Ahora solo lo mueve cuando hay que adelantarlo. Importa porque el plan gratuito de Cloudflare limita las escrituras diarias: es margen para más repartos al día.</li>
+          <li><strong>La pantalla solo se repinta si cambia.</strong> Antes cualquier aviso del servidor rehacía la pantalla entera, aunque fuera idéntica. Además de ahorrar trabajo al navegador, evita que se corte la animación de los dados si llega un aviso (por ejemplo, alguien que se conecta) mientras ruedan.</li>
+          <li><strong>Fondo a la medida del móvil.</strong> En vertical solo se ve una franja estrecha de la imagen, detrás del cristal de los paneles, y aun así se descargaba la versión de 2560&nbsp;px. Por debajo de 700&nbsp;px de ancho ahora baja la de 1600&nbsp;px: de 231&nbsp;KB a unos 110&nbsp;KB, sin diferencia visible.</li>
+          <li><strong>Dentro de Discord, descargas en paralelo.</strong> El código que conecta con Discord (~150&nbsp;KB) solo se pedía cuando la app ya había terminado de cargar. Ahora la página lo pide desde el principio, a la vez que la app, y se ahorra ese tiempo de espera al abrir la actividad.</li>
+          <li><strong>El aviso legal, fijo en la página.</strong> Ya no se vuelve a generar en cada pantalla: aparece con el primer pintado, antes de que arranque la app.</li>
         </ul>
       </section>
 
       <section class="panel">
         <h2>Alfa 0.4 · 8 de noviembre de 2026</h2>
-        <p>Entrar es más rápido.</p>
+        <p>Entrada en Discord más rápida y una demo que no se queda colgada.</p>
         <ul>
-          <li>Al abrir la actividad en Discord, la app hace a la vez lo que antes hacía uno detrás de otro, y entra antes.</li>
-          <li>Demo: una pestaña que pasaba un rato en segundo plano se quedaba sin respuesta («El servidor no responde»); ahora vuelve a conectar sola.</li>
+          <li><strong>Entrada en paralelo.</strong> Al abrir la actividad, el servidor pedía a Discord tu usuario y después tu lista de servidores, uno detrás de otro, y consultaba varias veces su índice de comunidades. Ahora las dos peticiones a Discord van a la vez, el índice se consulta una sola vez (y solo escribe si algo ha cambiado) y la conexión ya no espera a que Discord termine de autenticar el SDK, que solo hace falta para abrir enlaces.</li>
+          <li><strong>Tiempos de entrada medidos.</strong> La app anota cuánto tarda cada paso al entrar (solo números, nada que te identifique) para saber dónde se va el tiempo y seguir recortándolo.</li>
+          <li><strong>Demo: pestañas en segundo plano.</strong> Chrome frena los temporizadores de las pestañas que no se ven, y la demo daba por cerrada una pestaña que pasaba 15&nbsp;s sin dar señales: al volver, nada tenía respuesta («El servidor no responde»), por ejemplo tras esperar los 2 minutos de «Tomar el mando». Ahora aguanta 90&nbsp;s y, si aun así se da por cerrada, la pestaña vuelve a conectar sola.</li>
         </ul>
       </section>
       <section class="panel">
