@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SC Dungeon Loot</title>
-  <meta name="description" content="Reparto de botín por instancia para grupos de Star Citizen, como actividad de Discord: necesidad, codicia o pasar, con dados kármicos.">
+  <meta name="description" content="Reparto de botín por instancia para grupos de Star Citizen, como actividad de Discord o desde el navegador: necesidad, codicia o pasar, con dados kármicos.">
   <link rel="stylesheet" href="assets/estilo.css">
 </head>
 <body>
@@ -23,8 +23,9 @@
     <main>
       <section class="panel">
         <h1>SC Dungeon Loot</h1>
-        <p class="lead">Reparto de botín por instancia para grupos de Star Citizen, dentro de Discord. Cada objeto sale de uno en uno y cada jugador elige <strong>Necesidad</strong>, <strong>Codicia</strong> o <strong>Pasar</strong>. Se tiran dados con <strong>dados kármicos</strong>: quien ha tenido mala suerte tiene algo más de probabilidad en las siguientes tiradas, y quien ha tenido buena, algo menos.</p>
+        <p class="lead">Reparto de botín por instancia para grupos de Star Citizen, dentro de Discord o desde el navegador. Cada objeto sale de uno en uno y cada jugador elige <strong>Necesidad</strong>, <strong>Codicia</strong> o <strong>Pasar</strong>. Se tiran dados con <strong>dados kármicos</strong>: quien ha tenido mala suerte tiene algo más de probabilidad en las siguientes tiradas, y quien ha tenido buena, algo menos.</p>
         <a class="cta" href="https://discord.com/oauth2/authorize?client_id=1566225336117493991">Añadir a Discord</a>
+        <a class="cta" href="https://sc-dungeon-loot.scdungeonloot.workers.dev/play/">Jugar en la web</a>
         <p class="muted">Versión alfa: en pruebas con las primeras comunidades.</p>
       </section>
 
@@ -37,14 +38,29 @@
           <li><strong>Dados kármicos</strong>Compensan las rachas de suerte de un reparto al siguiente. El karma de cada uno es secreto.</li>
           <li><strong>Entregas con doble firma</strong>Quien lleva el objeto firma que lo ha entregado y quien lo ganó, que lo ha recibido.</li>
           <li><strong>Tus datos, bajo tu control</strong>Solo lo necesario, separado por servidor de Discord, y lo puedes borrar todo desde tu perfil.</li>
+          <li><strong>También sin Discord</strong>Desde el navegador, con instancias privadas por código que se borran solas al terminar.</li>
         </ul>
+      </section>
+
+      <section class="panel">
+        <h2>Jugar en la web</h2>
+        <p>Para grupos que no pueden usar la actividad de Discord (por ejemplo, porque su servidor no permite actividades o pide permisos que la administración no quiere dar). Las reglas, los dados y el karma son los mismos; lo que cambia es que <strong>no hay cuentas ni se guarda nada</strong>.</p>
+        <ol>
+          <li><strong>Entra en <a href="https://sc-dungeon-loot.scdungeonloot.workers.dev/play/">/play/</a> y escribe tu nombre.</strong> No hace falta cuenta: el nombre se queda en tu navegador, junto a una clave aleatoria que te identifica si recargas la página.</li>
+          <li><strong>Crea la instancia.</strong> Al anfitrión le sale un código de 12 caracteres (por ejemplo, <code>K7QM-4XPA-9TRB</code>) y un enlace para copiarlo. Se lo pasa solo a quien quiera en su grupo.</li>
+          <li><strong>El resto se une con el código</strong>, en «Unirse con código», o abriendo el enlace. Las instancias no salen en ninguna lista: sin el código no se pueden encontrar ni entrar. Hay 32<sup>12</sup> códigos posibles y el servidor limita los intentos por minuto, así que no se pueden adivinar probando.</li>
+          <li><strong>Se reparte igual que en Discord.</strong> El karma empieza en neutro para todos y compensa la suerte dentro de ese reparto; al terminar no se guarda.</li>
+          <li><strong>Al terminar, el resumen.</strong> Cada jugador puede copiarlo como texto, para pegarlo donde quiera, o descargarlo en JSON firmado por el servidor: con todas las tiradas, quién se lleva cada objeto y quién se lo tiene que entregar a quién. En «Comprobar resumen» se carga el archivo y la app dice si es auténtico; si alguien ha cambiado un solo dato, la firma deja de valer.</li>
+          <li><strong>Después, se borra todo.</strong> La instancia se borra entera del servidor una hora después de terminar el reparto, o tras una hora sin actividad. No queda registro: si necesitáis guardar el resultado, descargad el resumen antes.</li>
+        </ol>
+        <p class="muted">En la web no hay registro de repartos, karma entre repartos ni entregas con doble firma: eso es de la actividad de Discord, donde cada servidor guarda su historial.</p>
       </section>
 
       <section class="panel">
         <h2>Créditos</h2>
         <ul>
-          <li><strong>Desarrollo:</strong> <a href="https://github.com/GuillemExe">Wyllen</a>, con apoyo de IA.</li>
-          <li><strong>Idea original:</strong> <a href="https://qnyxor.nexus/">QNYXOR</a>.</li>
+          <li><strong>Idea y desarrollo:</strong> <a href="https://github.com/GuillemExe">Wyllen</a>, con apoyo de IA.</li>
+          <li><strong>Idea del juego de dados:</strong> <a href="https://qnyxor.nexus/">QNYXOR</a>.</li>
           <li><strong>Datos e imágenes de objetos:</strong> <a href="https://starcitizen.tools/">starcitizen.tools</a>, la Star Citizen Wiki (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>).</li>
           <li><strong>Iconos:</strong> DECKXOR SC Deck Icons, de <a href="https://qnyxor.nexus/">QNYXOR</a> y NyX.</li>
           <li><strong>Fondos de pantalla:</strong> de <a href="https://alphacoders.com/">Alpha Coders</a>, obra de Deridder45, Oreskis, bharathp97, samim_hasan, xGhostx y Lotus.</li>

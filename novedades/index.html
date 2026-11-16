@@ -26,6 +26,20 @@
       </section>
 
       <section class="panel">
+        <h2>Alfa 0.5 · 16 de noviembre de 2026</h2>
+        <p>La app, también en la web y sin Discord, en <a href="https://sc-dungeon-loot.scdungeonloot.workers.dev/play/">/play/</a>: para los grupos cuyo servidor de Discord no permite actividades, o cuya administración no quiere dar los permisos que piden.</p>
+        <ul>
+          <li><strong>Sin cuentas.</strong> Basta con escribir un nombre. El navegador crea una clave aleatoria y el servidor identifica al jugador por un resumen cifrado (SHA-256) de ella: si recargas, vuelves a tu sitio, y como los demás solo ven el resumen, nadie puede hacerse pasar por ti aunque vea tu identificador.</li>
+          <li><strong>Instancias privadas, por código.</strong> No hay ninguna lista: en Discord la lista tiene sentido porque cada servidor es un grupo cerrado, pero en la web la vería cualquiera. Al crear una instancia, el anfitrión recibe un código de 12 caracteres (sin 0/O ni 1/I, que se confunden al dictarlo) y un enlace para copiarlo. Son 32<sup>12</sup> códigos posibles y el servidor limita los intentos por minuto, así que no se pueden adivinar probando. Solo el anfitrión ve el código, para que sea él quien decida a quién invita.</li>
+          <li><strong>Aislada y temporal.</strong> Cada instancia web vive en su propio objeto del servidor, separada de las comunidades de Discord: un pase de la web no sirve en Discord, ni al revés, y cada pase vale solo para su instancia. Nada es permanente: la instancia se borra entera una hora después de terminar el reparto, o tras una hora sin actividad, sin dejar registro. Así no se acumulan datos de gente sin cuenta ni instancias abandonadas.</li>
+          <li><strong>Resumen copiable y resumen firmado.</strong> Al terminar, cada jugador puede copiar el resumen como texto, para pegarlo en cualquier chat, o descargarlo en JSON: jugadores, cada objeto con quién lo llevaba y quién se lo lleva, todas las tiradas con sus dados y las entregas pendientes. El JSON lo firma el servidor (HMAC-SHA256, con una clave que solo existe en Cloudflare) y en «Comprobar resumen» se ve si es auténtico: si alguien cambia un solo dato, por ejemplo el ganador de un objeto, la firma deja de valer. Como la instancia se borra, ese archivo es la prueba de lo que decidió la app.</li>
+          <li><strong>Mismas reglas.</strong> Necesidad, codicia o pasar, límite de necesidad, «Tirar ya», «Tomar el mando» y dados kármicos funcionan igual que en Discord, porque es el mismo código del servidor. El karma empieza en neutro y compensa la suerte dentro de ese reparto; al terminar no se guarda, porque sin cuentas no hay a quién guardárselo. La guía de la web explica solo lo que existe en ella.</li>
+          <li><strong>Créditos en el pie.</strong> Los créditos salen del encabezado de la app y se quedan en el pie de página, con la atribución de la idea más precisa: idea y desarrollo de Wyllen, e idea del juego de dados de QNYXOR.</li>
+        </ul>
+        <p>Privacidad y Condiciones explican ya cómo funciona la web: qué se trata (el nombre, la instancia mientras existe y la IP solo para los límites contra abusos, sin guardarla), cuánto dura y qué acredita el resumen firmado.</p>
+      </section>
+
+      <section class="panel">
         <h2>Alfa 0.4.2 · 8 de noviembre de 2026</h2>
         <p>La app, en inglés además de en español, para que la puedan usar comunidades de Star Citizen que no hablan español.</p>
         <ul>
