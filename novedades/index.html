@@ -26,6 +26,17 @@
       </section>
 
       <section class="panel">
+        <h2>Alfa 0.5.2 · 16 de noviembre de 2026</h2>
+        <p>Protección contra bots al crear instancias en la web.</p>
+        <ul>
+          <li><strong>Cloudflare Turnstile al crear.</strong> Hasta ahora, crear instancias en la web solo estaba limitado por minuto y por conexión, así que un programa con muchas conexiones podía crear instancias en masa y gastar los recursos del servidor. Ahora, para crear una instancia, el navegador tiene que pasar la comprobación de Cloudflare Turnstile, que distingue a una persona de un programa a partir de cómo se comporta el navegador, sin pedir datos ni poner pruebas de imágenes.</li>
+          <li><strong>Casi siempre invisible.</strong> A una persona normalmente no le pide nada: la comprobación tarda un momento al pulsar «Crear y entrar». Solo si Cloudflare tiene dudas sale una casilla que marcar.</li>
+          <li><strong>Comprobada en el servidor.</strong> El pase que da Cloudflare lo vuelve a comprobar nuestro servidor antes de crear la instancia, y cada pase vale una sola vez. Un programa que se salte la página y llame directamente al servidor no puede crear instancias.</li>
+          <li><strong>Sin peso de más.</strong> El código de Turnstile solo se descarga la primera vez que se crea una instancia; quien solo se une con un código o juega en Discord no descarga nada.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
         <h2>Alfa 0.5.1 · 16 de noviembre de 2026</h2>
         <p>Volver a una instancia de la web sin tener el código a mano.</p>
         <ul>
